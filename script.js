@@ -325,6 +325,21 @@ function updateDiscordStatus(data) {
     };
 
     text.textContent = statusMap[status] || 'Offline';
+
+    // Update Discord user info
+    if (data.discord_user) {
+        const user = data.discord_user;
+        const avatarEl = document.getElementById('discord-avatar');
+        const displayNameEl = document.getElementById('discord-display-name');
+        const usernameEl = document.getElementById('discord-username');
+
+        if (user.avatar) {
+            avatarEl.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=128`;
+        }
+
+        displayNameEl.textContent = user.display_name || user.global_name || user.username;
+        usernameEl.textContent = '@' + user.username;
+    }
 }
 
 function updateDiscordActivities(data) {

@@ -78,9 +78,16 @@
                     <span class="title-icon">🌙</span> Discord Presence
                 </h2>
                 <div class="presence-card">
-                    <div class="presence-status">
-                        <div class="status-dot" id="status-dot"></div>
-                        <span id="status-text">Loading...</span>
+                    <div class="presence-user">
+                        <div class="presence-avatar-wrapper">
+                            <img id="discord-avatar" class="presence-avatar" src="" alt="Discord Avatar">
+                            <div class="status-dot" id="status-dot"></div>
+                        </div>
+                        <div class="presence-user-info">
+                            <span class="presence-display-name" id="discord-display-name"></span>
+                            <span class="presence-username" id="discord-username"></span>
+                        </div>
+                        <span class="presence-status-text" id="status-text">Loading...</span>
                     </div>
                     <div id="discord-activity" class="discord-activity"></div>
                 </div>

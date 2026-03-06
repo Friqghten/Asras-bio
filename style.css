@@ -370,11 +370,62 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.presence-status {
+.presence-user {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 10px;
+}
+
+.presence-avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.presence-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(168, 85, 247, 0.3);
+}
+
+.presence-avatar-wrapper .status-dot {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    border: 2.5px solid var(--bg-card);
+}
+
+.presence-user-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.presence-display-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.presence-username {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.presence-status-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: capitalize;
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(168, 85, 247, 0.1);
 }
 
 .status-dot {

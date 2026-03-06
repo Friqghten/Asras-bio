@@ -17,6 +17,7 @@ let hasEntered = false;
 let lanyardWs = null;
 let spotifyTimestamps = null;
 let spotifyProgressInterval = null;
+let heartbeatInterval = null;
 
 // === Initialize on DOM Load ===
 document.addEventListener('DOMContentLoaded', () => {
@@ -256,6 +257,11 @@ async function fetchLanyardData() {
 }
 
 function connectLanyardWs() {
+    if (heartbeatInterval) {
+        clearInterval(heartbeatInterval);
+        heartbeatInterval = null;
+    }
+
     if (lanyardWs) {
         lanyardWs.close();
     }
@@ -279,7 +285,7 @@ function connectLanyardWs() {
                     }
                 }));
                 // Start heartbeat
-                setInterval(() => {
+                heartbeatInterval = setInterval(() => {
                     if (lanyardWs.readyState === WebSocket.OPEN) {
                         lanyardWs.send(JSON.stringify({ op: 3 }));
                     }
@@ -364,7 +370,7 @@ function updateDiscordActivities(data) {
             }
         }
 
-        const imgHtml = imageUrl ? `<img src="${imageUrl}" alt="${activity.name}" onerror="this.style.display='none'">` : '';
+        const imgHtml = imageUrl ? `<img src="${imageUrl}" alt="${escapeHtml(activity.name)}" onerror="this.style.display='none'">` : '';
 
         item.innerHTML = `
             ${imgHtml}
@@ -415,7 +421,7 @@ function updateSpotifyProgress() {
     const now = Date.now();
     const start = spotifyTimestamps.start;
     const end = spotifyTimestamps.end;
-    const elapsed = now - start;
+    const elapsed = Math.max(0, now - start);
     const total = end - start;
     const progress = Math.min(Math.max((elapsed / total) * 100, 0), 100);
 

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asra's Bio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Click to Enter Screen -->
+    <div id="enter-screen">
+        <div class="enter-particles" id="enter-particles"></div>
+        <div class="enter-content">
+            <div class="enter-pfp-container">
+                <img src="assets/pfp.jpeg" alt="Asra's PFP" class="enter-pfp">
+                <div class="enter-pfp-glow"></div>
+            </div>
+            <h1 class="enter-title">Asra's Space</h1>
+            <p class="enter-subtitle">click anywhere to enter</p>
+            <div class="enter-ring"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <!-- Floating Particles Background -->
+        <canvas id="particles-canvas"></canvas>
+
+        <!-- Cursor Glow -->
+        <div id="cursor-glow"></div>
+
+        <!-- Music Control -->
+        <button id="mute-btn" class="mute-button" title="Toggle Music">
+            <i class="fas fa-volume-up" id="mute-icon"></i>
+        </button>
+
+        <!-- Main Container -->
+        <div class="container">
+            <!-- PFP Section -->
+            <div class="pfp-section">
+                <div class="pfp-wrapper">
+                    <img src="assets/pfp.jpeg" alt="Asra's PFP" class="pfp">
+                    <div class="pfp-ring"></div>
+                    <div class="pfp-glow"></div>
+                </div>
+                <h1 class="username">Asra</h1>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="bio-section">
+                <p class="bio-text" id="bio-text"></p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-section">
+                <div class="social-links">
+                    <a href="https://discord.gg/eM4VsYyZkt" target="_blank" class="social-link discord-link">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord Server</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@.archvangel" target="_blank" class="social-link tiktok-link">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Discord Presence -->
+            <div class="presence-section" id="discord-presence">
+                <div class="presence-card">
+                    <div class="presence-user">
+                        <div class="presence-avatar-wrapper">
+                            <img id="discord-avatar" class="presence-avatar" src="" alt="Discord Avatar">
+                            <div class="status-dot" id="status-dot"></div>
+                        </div>
+                        <div class="presence-user-info">
+                            <span class="presence-display-name" id="discord-display-name"></span>
+                            <span class="presence-username" id="discord-username"></span>
+                        </div>
+                        <span class="presence-status-text" id="status-text">Loading...</span>
+                    </div>
+                    <div id="discord-activity" class="discord-activity"></div>
+                </div>
+            </div>
+
+            <!-- Spotify Now Playing -->
+            <div class="spotify-section" id="spotify-section">
+                <div class="spotify-card" id="spotify-card">
+                    <div class="spotify-not-playing" id="spotify-not-playing">
+                        <i class="fab fa-spotify"></i>
+                        <span>Not playing anything</span>
+                    </div>
+                    <div class="spotify-playing hidden" id="spotify-playing">
+                        <div class="spotify-album-art">
+                            <img id="spotify-art" src="" alt="Album Art">
+                            <div class="spotify-eq">
+                                <div class="eq-bar"></div>
+                                <div class="eq-bar"></div>
+                                <div class="eq-bar"></div>
+                                <div class="eq-bar"></div>
+                            </div>
+                        </div>
+                        <div class="spotify-info">
+                            <p class="spotify-song" id="spotify-song"></p>
+                            <p class="spotify-artist" id="spotify-artist"></p>
+                            <p class="spotify-album" id="spotify-album"></p>
+                            <div class="spotify-progress">
+                                <div class="spotify-progress-bar" id="spotify-progress-bar"></div>
+                            </div>
+                            <div class="spotify-time">
+                                <span id="spotify-elapsed">0:00</span>
+                                <span id="spotify-duration">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dropdown Sections -->
+            <div class="dropdown-sections">
+                <!-- Games -->
+                <div class="dropdown-section">
+                    <button class="dropdown-toggle" onclick="toggleDropdown(this)">
+                        <span>Games I Play</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <ul class="dropdown-list">
+                            <li>Overwatch</li>
+                            <li>Marvel Rivals</li>
+                            <li>Fortnite</li>
+                            <li>Minecraft</li>
+                            <li>Roblox</li>
+                            <li>etc</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Anime -->
+                <div class="dropdown-section">
+                    <button class="dropdown-toggle" onclick="toggleDropdown(this)">
+                        <span>Animes I Watch</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <p class="anime-updated">Updated: March 2026</p>
+
+                        <h3 class="anime-category">Finished:</h3>
+                        <ul class="dropdown-list">
+                            <li>JJK</li>
+                            <li>Blue Exorcist</li>
+                            <li>Solo Leveling</li>
+                            <li>Blue Lock</li>
+                            <li>Danganronpa: The Animation</li>
+                            <li>My Dress-Up Darling</li>
+                            <li>Death Note</li>
+                            <li>Horimiya</li>
+                            <li>Chainsaw Man</li>
+                            <li>Dan Da Dan</li>
+                            <li>The Apothecary Diaries</li>
+                            <li>Komi Can't Communicate</li>
+                            <li>A Whisker Away</li>
+                            <li>Saiki K</li>
+                            <li>Cells at Work</li>
+                            <li>Gachiakuta</li>
+                            <li>Frieren: Beyond Journey's End</li>
+                        </ul>
+
+                        <h3 class="anime-category">Currently Watching:</h3>
+                        <ul class="dropdown-list">
+                            <li>Tokyo Ghoul</li>
+                            <li>Re:ZERO</li>
+                            <li>Sugar Apple Fairy Tale</li>
+                            <li>Your Lie in April</li>
+                            <li>Hell's Paradise</li>
+                        </ul>
+
+                        <h3 class="anime-category">Want to Watch:</h3>
+                        <ul class="dropdown-list">
+                            <li>Bocchi the Rock!</li>
+                            <li>Black Clover</li>
+                            <li>Black Butler</li>
+                            <li>Toradora</li>
+                            <li>NieR: Automata</li>
+                            <li>The Promised Neverland</li>
+                            <li>Assassination Classroom</li>
+                            <li>Sword Art Online</li>
+                            <li>Code:Breaker</li>
+                            <li>Soul Eater</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>made with love</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -6,9 +6,9 @@ const LANYARD_API = `https://api.lanyard.rest/v1/users/${DISCORD_ID}`;
 // === Bio Text ===
 const BIO_TEXT = `Hi, I'm Asra! (Az-ruh) I usually spend my time listening to music, watching anime, or playing games...
 
-\u{1D649}\u{1D664}! me being nice does not mean i want you.
-\u{1D649}\u{1D664}! Just because we talk frequently does not mean you can get with me.
-\u{1D608}\u{1D5F2}\u{1D600}! I am looking for friends.`;
+No! me being nice does not mean i want you.
+No! Just because we talk frequently does not mean you can get with me.
+Yes! I am looking for friends.`;
 
 // === State ===
 let music = null;
